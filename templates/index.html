@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>BMI</title>
+</head>
+<body>
+    <div id="main_container">
+        <fieldset>
+            <legend id="header">BMI Calculator</legend>
+            <form action="/submit" method="POST">
+                <div class="container">
+                    <p></p>
+                    <label class="label">Weight (kg): </label>
+                    <input type="text" id="weight_input" name="weight_input" class="label">
+                    <p></p>
+                    <label class="label">Height (m): </label>
+                    <input type="text" id="height_input" name="height_input" class="label">
+                    <p></p>
+                    <button type="submit" id="button">Submit</button>
+                    <p></p>
+                    {% if result is defined %}
+                        {% if result <= 18.5 %}
+                            <label class="label" style="color: red;">Underweight: {{ result }}</label>
+                        {% endif %}
+                        {% if result > 18.5 and result <= 25 %}
+                            <label class="label" style="color: green;">Normal: {{ result }}</label>
+                        {% endif %}
+                        {% if result > 25 and result <= 30 %}
+                            <label class="label" style="color: yellow;">Overweight: {{ result }}</label>
+                        {% endif %}
+                        {% if result > 30 and result <= 50 %}
+                            <label class="label" style="color: darkred;">Obesity: {{ result }}</label>
+                        {% endif %}
+                    {% endif %}
+                    {% if error %}
+                        <label class="label" style="color: red;">Error {{ error }}</label>
+                    {% endif %}
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>
