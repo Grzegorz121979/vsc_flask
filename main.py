@@ -13,8 +13,15 @@ def calculate_bmi():
         height = request.form['height_input']
         weight_input = float(weight)
         height_input = float(height)
-        result = round(weight_input / height_input ** 2, 2)
-        return render_template('index.html', result=result)
+        selected_option = request.form.get('radio_button')
+        result_men = round(weight_input / height_input ** 2, 2)
+        result_women = round(weight_input / height_input ** 2, 2)
+        if selected_option == 'men_value':
+            return render_template('index.html', result_men=result_men)
+        elif selected_option == 'women_value':
+            return render_template('index.html', result_women=result_women)
+        else:
+            return 'Select field Man or Women'
     except ValueError:
         error = 'All position should be fill'
         return render_template('index.html', error=error)

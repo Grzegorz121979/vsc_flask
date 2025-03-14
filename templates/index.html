@@ -25,16 +25,18 @@
                     <p></p>
                     <button type="submit" id="button">Submit</button>
                     <p></p>
-                    {% if result is defined %}
-                        {% if result <= 18.5 %}
-                            <label class="label" style="color: red;">Underweight: {{ result }}</label>
-                        {% elif result > 18.5 and result <= 25 %}
-                            <label class="label" style="color: green;">Normal: {{ result }}</label>
-                        {% elif result > 25 and result <= 30 %}
-                            <label class="label" style="color: yellow;">Overweight: {{ result }}</label>
-                        {% elif result > 30 and result <= 50 %}
-                            <label class="label" style="color: darkred;">Obesity: {{ result }}</label>
+                    {% if result_men is defined %}
+                        {% if result_men <= 18.5 %}
+                            <label class="label" style="color: red;">Underweight: {{ result_men }}</label>
+                        {% elif result_men > 18.5 and result_men <= 25 %}
+                            <label class="label" style="color: green;">Normal: {{ result_men }}</label>
+                        {% elif result_men > 25 and result_men <= 30 %}
+                            <label class="label" style="color: yellow;">Overweight: {{ result_men }}</label>
+                        {% elif result_men > 30 and result_men <= 50 %}
+                            <label class="label" style="color: darkred;">Obesity: {{ result_men }}</label>
                         {% endif %}
+                    {% else %}
+                        <label class="label">WOMEN RESULT: {{ result_women }}</label>
                     {% endif %}
                     {% if error %}
                         <label class="label" style="color: red;">Error {{ error }}</label>
