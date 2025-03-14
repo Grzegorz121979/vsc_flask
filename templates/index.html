@@ -12,16 +12,26 @@
             <form action="/submit" method="POST">
                 <div class="container">
                     <p></p>
-                    <label class="label">Weight (kg): </label>
+                    <label class="label">Weight: </label>
                     <input type="text" id="weight_input" name="weight_input" class="label">
+                    <span class="inner">kg</span>
                     <p></p>
-                    <label class="label">Height (m): </label>
+                    <label class="label">Height : </label>
                     <input type="text" id="height_input" name="height_input" class="label">
+                    <span class="inner">cm</span>
                     <p></p>
+                    <label class="label">Gender: </label>
                     <input type="radio" name="radio_button" id="rad1" value="men_value">
                     <label class="label" for="rad1">Men</label>
                     <input type="radio" name="radio_button" id="rad2" value="women_value">
                     <label class="label" for="rad2">Women</label>
+                    <p></p>
+                    <label class="label">Age: </label>
+                    <select class="label">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
                     <p></p>
                     <button type="submit" id="button">Submit</button>
                     <p></p>
@@ -40,7 +50,7 @@
                         <label class="label">WOMEN RESULT: {{ result_women }}</label>
                     {% endif %}
                     {% if error %}
-                        <label class="label" style="color: red;">Error {{ error }}</label>
+                        <label class="label" style="color: red;">{{ error }}</label>
                     {% endif %}
                 </div>
             </form>

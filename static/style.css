@@ -9,7 +9,7 @@ fieldset {
 
 .container {
     text-align: center;
-    height: 250px;
+    height: 300px;
 }
 
 #header {
@@ -45,4 +45,9 @@ fieldset {
     font-weight: bold;
     border: 1px solid black;
     border-radius: 3px;
+}
+
+.inner {
+    margin-left: -27px;
+    color: #888;
 }
