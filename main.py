@@ -16,9 +16,6 @@ def calculate_bmi():
         result = round(weight_input / height_input ** 2, 2)
         return render_template('index.html', result=result)
     except ValueError:
-        error = 'Only numbers'
-        return render_template('index.html', error=error)
-    except KeyError:
         error = 'All position should be fill'
         return render_template('index.html', error=error)
 
