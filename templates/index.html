@@ -27,10 +27,10 @@
                     <label class="label" for="rad2">Women</label>
                     <p></p>
                     <label class="label">Age: </label>
-                    <select class="label">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select class="label" name="number">
+                        {% for num in numbers %}
+                            <option value="{{ num }}">{{ num }}</option>
+                        {% endfor %}
                     </select>
                     <p></p>
                     <button type="submit" id="button">Submit</button>
@@ -41,7 +41,7 @@
                         {% elif result_men > 18.5 and result_men <= 25 %}
                             <label class="label" style="color: green;">Normal: {{ result_men }}</label>
                         {% elif result_men > 25 and result_men <= 30 %}
-                            <label class="label" style="color: yellow;">Overweight: {{ result_men }}</label>
+                            <label class="label" style="color: orange;">Overweight: {{ result_men }}</label>
                         {% elif result_men > 30 and result_men <= 50 %}
                             <label class="label" style="color: darkred;">Obesity: {{ result_men }}</label>
                         {% endif %}

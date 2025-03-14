@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def start():
-    return render_template('index.html')
+    numbers = range(1, 121)
+    return render_template('index.html', numbers=numbers)
 
 @app.route('/submit', methods=['POST'])
 def calculate_bmi():
