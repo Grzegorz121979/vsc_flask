@@ -35,7 +35,8 @@
                         {% elif result_men > 30 and result_men <= 50 %}
                             <label class="label" style="color: darkred;">Obesity: {{ result_men }}</label>
                         {% endif %}
-                    {% else %}
+                    {% endif %}    
+                    {% if result_women is defined %}
                         <label class="label">WOMEN RESULT: {{ result_women }}</label>
                     {% endif %}
                     {% if error %}
