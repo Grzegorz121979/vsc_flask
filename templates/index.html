@@ -9,7 +9,7 @@
     <div id="main_container">
         <fieldset>
             <legend id="header">BMI Calculator</legend>
-            <form action="/submit" method="POST">
+            <form method="POST">
                 <div class="container">
                     <p></p>
                     <label class="label">Weight: </label>
@@ -21,40 +21,45 @@
                     <span class="inner">cm</span>
                     <p></p>
                     <label class="label">Gender: </label>
-                    <input type="radio" name="radio_button" id="rad1" value="men_value">
+                    <input type="radio" name="radio_button" id="rad1" value="man_value">
                     <label class="label" for="rad1">Men</label>
                     <input type="radio" name="radio_button" id="rad2" value="women_value">
                     <label class="label" for="rad2">Women</label>
                     <p></p>
-                    <label class="label">Age: </label>
-                    <select class="label" name="number">
-                        {% for num in numbers %}
-                            <option value="{{ num }}">{{ num }}</option>
-                        {% endfor %}
-                    </select>
+                    <button type="submit" id="button" class="button" formaction="/submit">Submit</button>
                     <p></p>
-                    <button type="submit" id="button">Submit</button>
-                    <p></p>
-                    {% if result_men is defined %}
-                        {% if result_men <= 18.5 %}
-                            <label class="label" style="color: red;">Underweight: {{ result_men }}</label>
-                        {% elif result_men > 18.5 and result_men <= 25 %}
-                            <label class="label" style="color: green;">Normal: {{ result_men }}</label>
-                        {% elif result_men > 25 and result_men <= 30 %}
-                            <label class="label" style="color: orange;">Overweight: {{ result_men }}</label>
-                        {% elif result_men > 30 and result_men <= 50 %}
-                            <label class="label" style="color: darkred;">Obesity: {{ result_men }}</label>
-                        {% endif %}
-                    {% endif %}    
+                    {% if result_man is defined %}
+                        {% if result_man <= 18.5 %}
+                            <label class="label" style="color: red;">Underweight: {{ result_man }}</label>
+                        {% elif result_man > 18.5 and result_man <= 25 %}
+                            <label class="label" style="color: green;">Normal: {{ result_man }}</label>
+                        {% elif result_man > 25 and result_man <= 30 %}
+                            <label class="label" style="color: orange;">Overweight: {{ result_man }}</label>
+                        {% elif result_man > 30 and result_man <= 50 %}
+                            <label class="label" style="color: darkred;">Obesity: {{ result_man }}</label>
+                        {% endif %}  
+                    {% endif %} 
                     {% if result_women is defined %}
-                        <label class="label">WOMEN RESULT: {{ result_women }}</label>
+                        {% if result_women <= 18.5 %}
+                            <label class="label" style="color: red;">Underweight: {{ result_women }}</label>
+                        {% elif result_women > 18.5 and result_women <= 25 %}
+                            <label class="label" style="color: green;">Normal: {{ result_women }}</label>
+                        {% elif result_women > 25 and result_women <= 30 %}
+                            <label class="label" style="color: orange;">Overweight: {{ result_women }}</label>
+                        {% elif result_women > 30 and result_women <= 50 %}
+                            <label class="label" style="color: darkred;">Obesity: {{ result_women }}</label>
+                        {% endif %}
                     {% endif %}
                     {% if error %}
                         <label class="label" style="color: red;">{{ error }}</label>
                     {% endif %}
+                    <p></p>
+                    <button type="submit" id="save_button" class="button" formaction="/save">Save</button>
+                    <p></p>
                 </div>
             </form>
         </fieldset>
     </div>
+    <script src="/sctipt.js"></script>
 </body>
 </html>
